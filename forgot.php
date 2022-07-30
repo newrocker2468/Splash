@@ -23,13 +23,13 @@
 </body>
 
 <?php
+require 'connection.php';
 session_start();
 if (!empty($_POST['submit'])) {
     $email = $_POST['email'];
 
-    $conn = mysqli_connect("localhost", "root", "", "splash");
-    $result = mysqli_query($conn, "SELECT * FROM user_db WHERE email = '$email'");
-    if (mysqli_num_rows($result) > 0) {
+    $result= mysqli_query($conn, "SELECT * FROM user_db WHERE email = '$email'");
+    if (mysqli_num_rows($result) > 0) { 
         $_SESSION['forgotPassword'] = $email;
         header("location: sendotp.php");
     } else {
