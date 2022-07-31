@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(isset($_SESSION['otp'])) {
+if (isset($_SESSION['otp'])) {
     $securedOtp = $_SESSION['otp'];
 } else {
     die("Invalid Session");
@@ -21,12 +21,18 @@ if(isset($_SESSION['otp'])) {
     <div class="form__main">
         <h1>Enter the OTP emailed to you</h1>
         <form action="" method="POST">
-            <input placeholder="Enter the OTP" type="password" name="otp" /><br />
-            <input type="submit" name="submit">
+            <div class="input-group">
+                <input required="" type="text" name="otp" id="otp" autocomplete="off" class="input" onkeyup="checkotp()">
+                <label class="user-label">OTP</label>
+            </div><br />
+            <button type="submit" name="submit" id="submit" class="button" value="submit">VERIFY</button>
         </form>
+        <p id="otp_verify"></p>
         <?php if (isset($_GET['check']) && $_GET['check'] == "false") {
             echo '<p style="color:red">Please Recheck Your OTP</p>';
         } ?>
+
+        <p>OR <a href="sendotp.php">Resend OTP</a></p>
     </div>
 </body>
 
@@ -55,3 +61,6 @@ if (!empty($_POST['submit'])) {
     }
 }
 ?>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="js/forgot.js"></script>
