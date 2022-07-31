@@ -18,7 +18,6 @@ function checkemail() {
 
 function checkotp() {
     var otp = $('#otp').val();
-    console.log(otp);
     $.post("check_otp.php", {
         otp: otp
     },

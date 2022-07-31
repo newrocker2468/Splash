@@ -5,7 +5,7 @@ require 'connection.php';
 if (isset($_SESSION['vkey'])) {
     $vkey = $_SESSION['vkey'];
 } else {
-    die("Verification Error");
+    header("location: login.php");
 }
 ?>
 <html>

@@ -195,3 +195,6 @@ h1 {
     color: #232323;
     cursor: no-drop;
 }
+.button{
+    margin-left: 25px;
+}

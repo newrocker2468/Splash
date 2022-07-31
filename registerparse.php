@@ -49,10 +49,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST["email"])) {
+    if (empty($_SESSION["email"])) {
         $emailError = "Email ID";
     } else {
-        $email = sanitize($_POST["email"]);
+        $email = sanitize($_SESSION["email"]);
     }
 }
 

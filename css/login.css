@@ -267,12 +267,12 @@ input:valid~label {
    .checkmark {
     text-align: center;
     font-size: 18px;
-    margin: 25px 0 30px 0;
+    margin: 30px 0 40px 0;
     position: relative;
     top: 0;
     left: 0;
-    height: 1em;
-    width: 1em;
+    height: 1.2em;
+    width: 1.2em;
     background-color: #ccc;
     transition: all 0.3s;
     border-radius: 5px;
@@ -289,7 +289,7 @@ input:valid~label {
    .checkmark:after {
     content: "";
     position: absolute;
-    display: none;
+    display: flex;
    }
    
    /* Show the checkmark when checked */
@@ -299,11 +299,11 @@ input:valid~label {
    
    /* Style the checkmark/indicator */
    .container .checkmark:after {
-    left: 0.40em;
-    top: 0.25em;
+    left: 0.50em;
+    top: 0.35em;
     width: 0.08em;
     height: 0.3em;
-    border: solid white;
+    border: solid rgb(255, 255, 255);
     border-width: 0 0.15em 0.15em 0;
     transform: rotate(45deg);
    }
@@ -321,3 +321,55 @@ input:valid~label {
      transform: scale(1);
     }
    }
+/* @media(max-width:700px){
+    #svg{
+      height: 500px !important;
+    }
+  
+} */
+@media only screen and (max-device-width: 1200px) {
+    #welcome {
+     font-size: 5em !important;
+    } 
+   
+input[type="text"]{
+ width: 550px;
+}
+input[type="password"]{
+    width: 550px;
+   }
+
+  
+}
+@media only screen and (min-device-width: 1201px ) and (max-device-width:1400px) {
+    #welcome {
+     font-size: 4em !important;
+    } 
+   
+input[type="text"]{
+ width: 400px;
+}
+input[type="password"]{
+    width: 400px;
+   }
+   
+ 
+}
+#checktext{
+    margin-left: 27px;
+   font-size:1em;
+}
+.box{
+    width: 50px !important;
+    height: 50px !important;
+    display: flex ;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+
+}
+

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 31, 2022 at 02:13 PM
+-- Generation Time: Jul 31, 2022 at 04:53 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.28
 
@@ -42,14 +42,6 @@ CREATE TABLE `user_db` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user_db`
---
-
-INSERT INTO `user_db` (`id`, `username`, `password`, `firstName`, `lastName`, `email`, `phone`, `gender`, `dob`, `verified`, `vkey`) VALUES
-(1, 'jaskaran91', '$2y$10$XEGrNaBlvMGHUxDusOXbdeJXUcEnPP1/TSx6QaWjjwKCtizFDwbBq', 'Jaskaran', '.s', 'newrocker2468@gmail.com', '9167158993', 'Male', '2022-07-03', 1, 'ccb69cb075752cb963e6bd21d0900fa6c4278beaecb58296f768db2543220fc9'),
-(2, 'annuraggg', '$2y$10$6aXozy5p3lhEJhP0kWIbQOeJhgK7wyg/69uB/xo7kZZUu2I.NnLr6', 'Anurag', 'Sawant', 'annuraggggg@gmail.com', '9324083638', 'Male', '2004-01-17', 1, '959be972db580d70fa0853e0a8b4cdb464323f42e1d018bd532bfebe6784a6de');
-
---
 -- Indexes for dumped tables
 --
 
@@ -67,7 +59,7 @@ ALTER TABLE `user_db`
 -- AUTO_INCREMENT for table `user_db`
 --
 ALTER TABLE `user_db`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

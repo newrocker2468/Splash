@@ -23,7 +23,7 @@ if (isset($_COOKIE['logkey'])) {
 </head>
 
 </html>
-<svg width="100%" height="75%" id="svg" viewBox="0 100 1440 400" class="wave">
+<svg width="100%" " id="svg" viewBox="0 100 1440 400" class="wave">
     <defs>
         <linearGradient id="gradient" x1="87%" y1="17%" x2="13%" y2="83%">
             <stop offset="5%" stop-color="#c3083fff"></stop>
@@ -35,7 +35,7 @@ if (isset($_COOKIE['logkey'])) {
 
 <body>
     <div class="form__main">
-        <h1>Welcome to Splash</h1>
+        <h1 id="welcome">Welcome to Splash</h1>
         <form action="" method="POST">
             <br>
             <br>
@@ -48,9 +48,9 @@ if (isset($_COOKIE['logkey'])) {
                 <label class="user-label">Password</label>
             </div>
             <label class="container">
-                <input type="checkbox" checked="checked" name="remember">
-                <div class="checkmark">
-                    <div style="margin-left: 35px;">Remember&nbsp;Me&nbsp;Next&nbsp;Time</div>
+                <input  type="checkbox" checked="checked" name="remember" class="box">
+                <div class="checkmark" id="checkmark">
+                    <div id="checktext">Remember&nbsp;Me&nbsp;Next&nbsp;Time</div>
                 </div>
             </label>
             <button class="fancy" href="#" type="submit" name="submit">
