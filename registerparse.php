@@ -131,7 +131,7 @@ if ($rows == 1) {
                     session_unset();
                     session_destroy(); 
 
-                    header("Location: login.php");
+                    header("Location: index.php?register=true");
                     
                 } else {
                     echo '<h1>Error!</h1>

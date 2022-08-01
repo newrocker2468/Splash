@@ -3,10 +3,48 @@ session_start();
 require 'connection.php';
 
 if (isset($_SESSION['vkey'])) {
-    $vkey = $_SESSION['vkey'];
-} else {
-    header("location: login.php");
+    if (time() > $_SESSION['expiry']) {
+        $sessid = session_id();
+        $expiresql =    "UPDATE user_login
+                    SET status='expired'
+                    WHERE sessid='$sessid'";
+        $result = $conn->query($expiresql);
+
+        setcookie("logkey", "expired", time() - 2592000, "", "localhost");
+        setcookie("expiry", "expired", time() - 2592000, "", "localhost");
+        setcookie("sessid", "expired", time() - 2592000, "", "localhost");
+        session_unset();
+        session_destroy();
+        session_regenerate_id();
+
+        header("location: index.php?expired=true");
+    } else {
+        $vkey = $_SESSION['vkey'];
+    }
+} else if (isset($_COOKIE['logkey'])) {
+    if (time() > $_COOKIE['expiry']) {
+        $sessid = $_COOKIE['sessid'];
+        $expiresql =    "UPDATE user_login
+                    SET status='expired'
+                    WHERE sessid='$sessid'";
+        $result = $conn->query($expiresql);
+
+        setcookie("logkey", "expired", time() - 2592000, "", "localhost");
+        setcookie("expiry", "expired", time() - 2592000, "", "localhost");
+        setcookie("sessid", "expired", time() - 2592000, "", "localhost");
+        session_unset();
+        session_destroy();
+        session_regenerate_id();
+        header("location: index.php?expired=true");
+    } else {
+        session_destroy();
+        session_id($_COOKIE['sessid']);
+        session_start();
+        $vkey = $_COOKIE['logkey'];
+    }
 }
+
+
 ?>
 <html>
 
@@ -18,7 +56,7 @@ if (isset($_SESSION['vkey'])) {
 
 <body>
     <h1>
-        Welcome to splash
+        Welcome to Splash
     </h1>
     <?php
     $sql = "SELECT * FROM user_db WHERE vkey = '$vkey' ";
@@ -42,13 +80,22 @@ if (isset($_SESSION['vkey'])) {
 
 </html>
 
-<?php 
+<?php
 
-if(isset($_POST['submit'])) {
-    setcookie("logkey","expired", time() - 2592000, "", "localhost");
+if (isset($_POST['submit'])) {
+    $sessid = session_id();
+    $expiresql =    "UPDATE user_login
+                SET status='loggedOut'
+                WHERE sessid='$sessid'";
+    $result = $conn->query($expiresql);
+    
+    setcookie("logkey", "expired", time() - 2592000, "", "localhost");
+    setcookie("expiry", "expired", time() - 2592000, "", "localhost");
+    setcookie("sessid", "expired", time() - 2592000, "", "localhost");
     session_unset();
     session_destroy();
-    header("location: login.php");
+    session_regenerate_id();
+    header("location: index.php");
 }
 
 ?>

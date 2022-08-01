@@ -42,7 +42,7 @@
         <?php if (isset($_GET['check']) && $_GET['check'] == "false") {
             echo '<p style="color:red">Sorry, That Email Does Not Exist. Are You Sure You Entered The Correct One?</p>';
         } ?>
-        <p><a href="login.php">Or, Continue with Login</a></p>
+        <p><a href="index.php">Or, Continue with Login</a></p>
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>

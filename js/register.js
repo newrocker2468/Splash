@@ -9,8 +9,14 @@ function checkusername() {
             function (result) {
                 if (result == 1) {
                     $('#username_verify').html(username + ' is Available');
+                    document.getElementById('username_verify').style.color = 'green';
+                    document.getElementById("uservalid").disabled = false;
+                    document.getElementById("uservalid").className = "";
                 } else {
                     $('#username_verify').html(username + ' is not Available');
+                    document.getElementById('username_verify').style.color = 'red';
+                    document.getElementById("uservalid").disabled = true;
+                    document.getElementById("uservalid").className = "disabledbutt";
                 }
             });
     }
@@ -20,12 +26,14 @@ function verifyPassword() {
     var pw = document.getElementById("pass").value;
     var cpw = document.getElementById("conpass").value;
     if (pw.length < 8 || cpw != pw) {
+        document.getElementById('message').style.color = 'red';
         document.getElementById("message").innerHTML = "Invalid Password Format or Passwords Do Not Match";
         document.getElementById("submit").disabled = true;
         document.getElementById("submit").className = "disabledbutt";
         return false;
     } else {
-        document.getElementById("message").innerHTML = "";
+        document.getElementById('message').style.color = 'white';
+        document.getElementById("message").innerHTML = 'Make a <span style="font-weight:bolder;">Strong</span> and <span style="font-weight:bolder;">Memorable</span> Password that you will not use anywhere else.';
         document.getElementById("submit").className = "btns"
         document.getElementById("submit").disabled = false;
         return true;
@@ -45,19 +53,19 @@ function showPass() {
     }
 }
 
-function checkemail() {
+/* function checkemail() {
     var email = $('#email').val();
     $.post("check_email.php", {
         email: email
     },
         function (result) {
             if (result != 1) {
-                $('#email_verify').html(email + ' is already in use');
+                $('#email_verify').html(email + ' is already in use');                
             } else {
                 $('#email_verify').html('');
             }
         });
-}
+} */
 
 /* function checkphone() {
     var phone = $('#phone').val();

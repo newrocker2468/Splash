@@ -170,11 +170,12 @@ session_start();
                     <div class="title">Username</div>
                     <div class="field">
                         <div class="label">Enter a meaningful username</div>
-                        <input type="text" name="username" required />
+                        <input type="text" name="username" id="username" onkeyup="checkusername()" required />
                     </div>
+                    <p id="username_verify"></p>
                     <div class="field btns">
                         <button class="prev-4 prev">Previous</button>
-                        <button class="next-4 next">Next</button>
+                        <button class="next-4 next" id="uservalid">Next</button>
                     </div>
                 </div>
                 <div class="page">
