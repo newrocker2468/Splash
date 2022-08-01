@@ -452,7 +452,7 @@ if (isset($_POST['submit'])) {
             if (password_verify($password, $row['password']) == 1) {
                 if (isset($_POST['remember'])) {
                     setcookie("logkey", $row['vkey'], time() + 2592000, "", "localhost");
-                    setcookie("expiry", time() + 30, time() + 2592000, "", "localhost");
+                    setcookie("expiry", time() + 2629746, time() + 2592000, "", "localhost");
                     setcookie("sessid", session_id(), time() + 2592000, "", "localhost");
                 }
                 $login_userid = $row['id'];
