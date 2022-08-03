@@ -1,8 +1,9 @@
 $(document).ready(function () {
     $(".second").fadeOut();
     $(".third").fadeOut();
-    $("#spinner").delay(1000).fadeOut();
     $(".first").fadeIn();
+    $("#spinner").delay(1000).fadeOut();
+    
 });
 
 function checkemail() {
@@ -42,7 +43,7 @@ function emailsub() {
         email: email
     },
         function (result) {
-            if (result == 1) {
+            if (result == 1) {``
                 $("#spinner").fadeOut()
             } else {
             };

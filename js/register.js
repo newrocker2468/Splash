@@ -223,3 +223,24 @@ function phonenumber() {
         return true;
     }
 };
+
+function checkotp() {
+    var otp = $('#otp').val();
+    console.log(otp)
+    $.post("check_register_otp.php", {
+        otp: otp
+    },
+        function (result) {
+            if (result == 1) {
+                $('#verify_otp').html('');
+                document.getElementById('submit').disabled = false;
+                document.getElementById('submit').className = "button";
+                console.log(result)
+            } else {
+                $('#verify_otp').html('Please Check the OTP You Have Entered');
+                document.getElementById('submit').disabled = true;
+                document.getElementById('submit').className = "disabled";
+                console.log(result)
+            }
+        });
+}

@@ -33,26 +33,3 @@
     <script src="js/register.js"></script>
 </body>
 
-<?php
-if (session_status() === PHP_SESSION_ACTIVE) {
-
-    session_unset();
-    session_destroy();
-}
-
-session_start();
-$email = "";
-if (isset($_POST['submit'])) {
-    $email = $_POST['email'];
-    $_SESSION['email'] = $email;
-    $_SESSION['verifyFlag'] = FALSE;
-
-    $tokenkey = openssl_random_pseudo_bytes(32);
-    $emailtoken = bin2hex($tokenkey);
-
-    $_SESSION['token'] = $emailtoken;
-
-    header("location: sendregisteration.php?token=$token");
-}
-
-?>
