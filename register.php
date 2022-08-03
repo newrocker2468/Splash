@@ -1,75 +1,96 @@
-<?php
-session_start();
-
-/* if (isset($_SESSION['email']) && isset($_SESSION['verifyFlag']) && isset($_SESSION['token']) && isset($_SESSION['verifykey'])) {
-    if ($_SESSION['token'] == $_GET['token'] && $_SESSION['verifykey'] == $_GET['key']) {
-        $email = $_SESSION['email'];
-        $verifyFlag = $_SESSION['verifyFlag'];
-        $token = $_SESSION['token'];
-    } else {
-        die("Invalid Token or Key");
-    }
-} else {
-    die("Invalid Session");
-} */
-
-?>
-
 <html>
 
 <head>
-    <title>Register</title>
-    <link rel="stylesheet" href="css/register.css" />
+    <title>
+        Email Verification Phase
+    </title>
+    <link rel="stylesheet" href="css/emailVerify.css">
 </head>
 
 </html>
 
 <body>
-    <!-- <div class="form__main">
-        <form action="registerparse.php" method="POST">
-            <h1>Welcome, Let's Start With Your Name</h1>
-            <label for="fname">Enter Your First Name</label>
-            <input type="text" name="fname" id="fname"><br>
-            <label for="lname">Enter Your Last Name</label>
-            <input type="text" name="lname" id="lname">
+    <div class="first">
+        <div class="form__main">
+            <h1>Welcome To Splash</h1>
+            <form action="" method="POST">
+                <div class="form-control">
+                    <input type="value" required="" type="email" name="email" id="email" autocomplete="off" onkeyup="validateemail()" required>
+                    <label>
+                        <span style="transition-delay:0ms">E</span><span style="transition-delay:50ms">M</span><span style="transition-delay:100ms">A</span><span style="transition-delay:150ms">I</span><span style="transition-delay:200ms">L</span>
+                    </label>
+                </div>
+
+                <button type="submit" name="submit" id="submit" class="button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span> Join The Club!
+                </button>
+            </form>
+            <p id="email_validate" style="color:red"></p>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="js/register.js"></script>
+    </div>
 
 
-            <h1>Personal Identifiers</h1>
-            <label for="email">Enter Your email</label>
-            <input type="email" name="email" id="email" onkeyup="checkemail()" autocomplete="off">
-            <p id='email_verify'></p>
 
-            <label for="phone">Enter Your Phone number</label>
-            <input type="number" name="phone" id="phone" onkeyup="checkphone()" autocomplete="off">
-            <p id='phone_verify'></p>
 
-            <label for="gender">What's Your Gender</label>
-            <select name="gender" id="gender">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
-            </select>
 
-            <label for="dob">Enter Your Date Of Birth</label>
-            <input type="date" name="dob" id="dob" />
 
-            <h1>Pick a Nice Username</h1>
-            <label for="username">Enter Your username</label>
-            <input type='text' id='username' name="username" onkeyup="checkusername()" autocomplete="off">
-            <p id='username_verify'></p>
 
-            <h1>Now, Create a Strong Password for Your Account</h1>
-            <label for="pass">Enter Your password</label>
-            <input type="password" onkeyup="verifyPassword()" name="pass" id="pass" autocomplete="off"><br>
-            <p id="message"></p>
-            <label for="cpass">Confirm your password</label>
-            <input type="password" name="conpass" id="conpass" onkeyup="confirmPassword()" autocomplete="off">
-            <p id="message2"></p>
-            <a onclick="showPass()">SHOW PASSWORD</a>
 
-            <input type="submit" value="submit">
+
+
+    
+<body>
+    <div class="form__main">
+        <form action="" method="POST">
+            <div class="form-control">
+                <input type="number" name="otp" id="otp" autocomplete="off" onkeyup="checkotp()" required>
+                <label>
+                    <span style="transition-delay:0ms">O</span><span style="transition-delay:50ms">T</span><span style="transition-delay:100ms">P</span>
+                </label>
+            </div>
+
+            <button type="submit" name="submit" id="submit" value="submit" class="button">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span> Verify
+            </button>
         </form>
+        <p id="verify_otp" style="color:red"></p>
+    </div>
+
+    <!--    <div class="form__main">
+        <h1>Enter the OTP emailed to you</h1>
+        <form action="" method="POST">
+            <input placeholder="Enter the OTP" type="password" name="otp" /><br />
+            <input type="submit" name="submit">
+        </form>
+        <? /*  if (isset($_GET['check']) && $_GET['check'] == "false") {
+            echo '<p style="color:red">Please Recheck Your OTP</p>';
+        } */ ?>
     </div> -->
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -201,5 +222,6 @@ session_start();
         </div>
 </body>
 
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-<script src="js/register.js"></script>
+
+
+
