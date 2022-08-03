@@ -110,11 +110,17 @@ if (isset($_POST['submit'])) {
                 WHERE sessid='$sessid'";
     $result = $conn->query($expiresql);
 
-    setcookie("logkey", "expired", time() - 2592000, "", "localhost");
-    setcookie("expiry", "expired", time() - 2592000, "", "localhost");
-    setcookie("sessid", "expired", time() - 2592000, "", "localhost");
-    session_unset();
-    session_destroy();
+    if (isset($_COOKIE['logkey'])) {
+        setcookie("logkey", "expired", time() - 2592000, "", "localhost");
+        setcookie("expiry", "expired", time() - 2592000, "", "localhost");
+        setcookie("sessid", "expired", time() - 2592000, "", "localhost");
+    }
+
+    if (session_status() === PHP_SESSION_ACTIVE) {
+        session_unset();
+        session_destroy();
+    }
+
     session_regenerate_id();
     header("location: index.php");
 }

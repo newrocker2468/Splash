@@ -1,7 +1,6 @@
 <?php
 require 'connection.php';
 
-
 if (isset($_COOKIE['logkey'])) {
     $vkey = $_COOKIE['logkey'];
     $sql = "SELECT * FROM user_db WHERE vkey = '$vkey' ";
@@ -90,7 +89,7 @@ session_start();
                     <span class="hover-underline-animation">Forgot Your Password?</span>
                 </a></p>
 
-            <p><a href="emailverify.php" class="cta">
+            <p><a href="register.php" class="cta">
                     <span class="hover-underline-animation">Or Create a New Account</span>
                 </a></p>
         </form>
